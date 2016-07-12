@@ -79,6 +79,30 @@ describe "Defining a method" do
   end
 end
 
+describe 'setter method' do
+  it 'returns the set value' do
+    klass = Class.new do
+      def foobar=(*)
+        1
+      end
+    end
+
+    (klass.new.foobar = 'bar').should == 'bar'
+  end
+end
+
+describe '[]= methods' do
+  it 'returns the set value' do
+    klass = Class.new do
+      def []=(*)
+        1
+      end
+    end
+
+    (klass.new[33] = 'bar').should == 'bar'
+  end
+end
+
 describe "An instance method definition with a splat" do
   it "accepts an unnamed '*' argument" do
     def foo(*); end;

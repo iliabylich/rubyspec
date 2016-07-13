@@ -88,6 +88,7 @@ describe 'setter method' do
     end
 
     (klass.new.foobar = 'bar').should == 'bar'
+    (klass.new.foobar = 'bar', 'baz').should == ["bar", "baz"]
   end
 end
 
@@ -100,6 +101,8 @@ describe '[]= methods' do
     end
 
     (klass.new[33] = 'bar').should == 'bar'
+    (klass.new[33] = 'bar', 'baz').should == ['bar', 'baz']
+    (klass.new[33, 34] = 'bar', 'baz').should == ['bar', 'baz']
   end
 end
 
